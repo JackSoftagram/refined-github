@@ -46,7 +46,24 @@ async function fetchCoAuthoredData(): Promise<Author[]> {
 
 	return userInfo.repository.pullRequest.commits.nodes.map((node: AnyObject) => node.commit.author as Author);
 }
-/// Above to be removed
+import './fit-textareas.css';
+import select from 'select-dom';
+import delegate, {DelegateEvent} from 'delegate-it';
+import fitTextarea from 'fit-textarea';
+import features from '../libs/features';
+import onPrMergePanelOpen from '../libs/on-pr-merge-panel-open';
+
+function listener({delegateTarget: textarea}: DelegateEvent<Event, HTMLTextAreaElement>): void {
+function enable(textarea: HTMLTextAreaElement): void {
+	// `fit-textarea` adds only once listener
+	fitTextarea.watch(textarea);
+
+	// Disable constrained native feature
+	textarea.classList.replace('js-size-to-fit', 'rgh-fit-textareas');
+}
+
+
+/// Testing dependency violation rules, All bove to be removed
 
 
 
