@@ -1,3 +1,5 @@
+
+import fitTextarea from 'fit-textarea'; //To try the Dependency violations
 // Memoization here is used to let onPrMergePanelOpen() be called multiple times without risking multiple attached handlers
 import mem from 'mem';
 import delegate, {DelegateSubscription, DelegateEvent} from 'delegate-it';
